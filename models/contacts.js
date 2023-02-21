@@ -17,18 +17,17 @@ const getContactById = async (contactId) => {
 
 const removeContact = async (contactId) => {
   const contacts = await listContacts();
+  const index = contacts.findIndex((item) => item.id === contactId);
 
-  const objWithIdIndex = contacts.findIndex(
-    (item) => parseInt(item.id) === contactId
-  );
-
-  contacts.splice(objWithIdIndex, 1);
-
-  if (!objWithIdIndex) {
+  if (index === -1) {
     return null;
   }
 
-  return contacts;
+  const [result] = contacts.splice(index, 1);
+
+  await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
+
+  return result;
 };
 
 const addContact = async (body) => {
@@ -36,6 +35,7 @@ const addContact = async (body) => {
   const newContact = { id: uuidv4(), ...body };
 
   contacts.push(newContact);
+
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
 
   return newContact;
@@ -44,6 +44,7 @@ const addContact = async (body) => {
 const updateContact = async (contactId, body) => {
   const contacts = await listContacts();
   const index = contacts.findIndex((item) => item.id === contactId);
+
   if (index === -1) {
     return null;
   }
