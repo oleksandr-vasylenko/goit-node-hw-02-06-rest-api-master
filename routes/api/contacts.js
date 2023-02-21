@@ -6,12 +6,10 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const result = await contacts.listContacts();
+
     res.json(result);
   } catch (error) {
     next(error);
-    // res.status(500).json({
-    //   message: "Server error",
-    // });
   }
 });
 
@@ -26,23 +24,32 @@ router.get("/:contactId", async (req, res, next) => {
     res.json(result);
   } catch (error) {
     next(error);
-    // const { status = 500, message = "Server error" } = error;
-    // res.status(status).json({
-    //   message,
-    // });
   }
 });
 
 router.post("/", async (req, res, next) => {
-  res.json(contacts);
+  try {
+    const result = await contacts.addContact(req.body);
+    res.status(201).json(result);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.delete("/:contactId", async (req, res, next) => {
-  res.json(contacts);
+  try {
+    // res.json(contacts);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.put("/:contactId", async (req, res, next) => {
-  res.json(contacts);
+  try {
+    // res.json(contacts);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;

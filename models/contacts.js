@@ -16,36 +16,28 @@ const getContactById = async (contactId) => {
 };
 
 const removeContact = async (contactId) => {
-  try {
-    const contacts = await listContacts();
+  const contacts = await listContacts();
 
-    const objWithIdIndex = contacts.findIndex(
-      (item) => parseInt(item.id) === contactId
-    );
+  const objWithIdIndex = contacts.findIndex(
+    (item) => parseInt(item.id) === contactId
+  );
 
-    contacts.splice(objWithIdIndex, 1);
+  contacts.splice(objWithIdIndex, 1);
 
-    if (!objWithIdIndex) {
-      return null;
-    }
-
-    return contacts;
-  } catch (error) {
-    console.log(error);
+  if (!objWithIdIndex) {
+    return null;
   }
+
+  return contacts;
 };
 
 const addContact = async (body) => {
-  try {
-    const contacts = await listContacts();
-    const newContact = { id: uuidv4(), body };
+  const contacts = await listContacts();
+  const newContact = { id: uuidv4(), body };
 
-    contacts.push(newContact);
+  contacts.push(newContact);
 
-    return contacts;
-  } catch (error) {
-    console.log(error);
-  }
+  return newContact;
 };
 
 const updateContact = async (contactId, body) => {};
