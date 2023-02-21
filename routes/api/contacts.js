@@ -8,9 +8,10 @@ router.get("/", async (req, res, next) => {
     const result = await contacts.listContacts();
     res.json(result);
   } catch (error) {
-    res.status(500).json({
-      message: "Server error",
-    });
+    next(error);
+    // res.status(500).json({
+    //   message: "Server error",
+    // });
   }
 });
 
@@ -20,22 +21,15 @@ router.get("/:contactId", async (req, res, next) => {
     const result = await contacts.getContactById(contactId);
 
     if (!result) {
-      throw HttpError(404, "Not Found");
-
-      // const error = new Error("Not Found");
-      // error.status = 404;
-      // throw error;
-
-      // return res.status(404).json({
-      //   message: "Not found",
-      // });
+      throw HttpError(404, "Not found");
     }
     res.json(result);
   } catch (error) {
-    const { status = 500, message = "Server Error" } = error;
-    res.status(status).json({
-      message,
-    });
+    next(error);
+    // const { status = 500, message = "Server error" } = error;
+    // res.status(status).json({
+    //   message,
+    // });
   }
 });
 
