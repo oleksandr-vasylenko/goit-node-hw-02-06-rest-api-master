@@ -1,6 +1,6 @@
 ## Contacts API
 
-### Description
+### Description:
 
 Given API allows you to work with the contacts available in the database.
 
