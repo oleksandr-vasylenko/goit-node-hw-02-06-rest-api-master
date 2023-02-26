@@ -1,8 +1,10 @@
 ## Contacts API
 
+### Description
+
 Given API allows you to work with the contacts available in the database.
 
-The following methods are available:
+### The following methods are available:
 
 - **getAll** - returns you all contacts from database
 - **getById** - returns you a particular contact by passed ID
