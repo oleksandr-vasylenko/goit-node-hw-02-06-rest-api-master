@@ -11,7 +11,7 @@ The following methods are available:
 - updateById: returns updated fields by passed ID
 - updateFavorite: adds the contact to favorite
 
-### Commands:
+### Commands available in Terminal:
 
 - `npm start` &mdash; start server in production mode
 - `npm run start:dev` &mdash; start server in development mode
