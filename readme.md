@@ -4,12 +4,12 @@ Given API allows you to work with the contacts available in the database.
 
 The following methods are available:
 
-- getAll - returns you all contacts from database
-- getById: returns you a particular contact by passed ID
-- addNew: adds a new contact
-- deletebyId: removes a contact by passed ID
-- updateById: returns updated fields by passed ID
-- updateFavorite: adds the contact to favorite
+- **getAll** - returns you all contacts from database
+- **getById** - returns you a particular contact by passed ID
+- **addNew** - adds a new contact
+- **deletebyId** - removes a contact by passed ID
+- **updateById** - returns updated fields by passed ID
+- **updateFavorite** - adds the contact to favorite
 
 ### Commands available in Terminal:
 
