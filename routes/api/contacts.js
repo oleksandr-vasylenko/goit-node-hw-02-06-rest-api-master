@@ -1,8 +1,12 @@
 const express = require("express");
+
 const cntrl = require("../../controllers/contacts");
+
 const router = express.Router();
+
 const { validateBody } = require("../../middlwares");
-const schemas = require("../../schemas/contacts");
+
+const { schemas } = require("../../models/contact");
 
 router.get("/", cntrl.getAll);
 
