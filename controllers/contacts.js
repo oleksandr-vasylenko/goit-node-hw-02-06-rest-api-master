@@ -8,7 +8,6 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
   const { contactId } = req.params;
-  // const result = await Contact.find({ _id: contactId });
   const result = await Contact.findById(contactId);
 
   if (!result) {
