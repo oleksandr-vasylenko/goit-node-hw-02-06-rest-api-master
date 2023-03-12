@@ -4,7 +4,7 @@
 
 Given API allows you to work with the contacts available in the database.
 
-### The following methods are available:
+### The following methods for work with contacts are available:
 
 - **getAll** - returns you all contacts from database
 - **getById** - returns you a particular contact by passed ID
@@ -12,6 +12,13 @@ Given API allows you to work with the contacts available in the database.
 - **deletebyId** - removes a contact by passed ID
 - **updateById** - returns updated fields by passed ID
 - **updateFavorite** - adds the contact to favorite
+
+### The following authorization methods are available:
+
+- **register**
+- **login**
+- **getCurrent**
+- **logout**
 
 ### Commands available in Terminal:
 
