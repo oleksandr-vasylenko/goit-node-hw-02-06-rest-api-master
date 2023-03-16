@@ -3,6 +3,8 @@
 ### Description:
 
 Given API allows you to work with the contacts available in the database.
+Every contact added to the database gets a unique avatar.
+There is an option to change the avatar for the contact.
 
 ### The following methods for work with contacts are available:
 
@@ -19,6 +21,7 @@ Given API allows you to work with the contacts available in the database.
 - **login**
 - **getCurrent**
 - **logout**
+- **updateAvatar**
 
 ### Commands available in Terminal:
 
