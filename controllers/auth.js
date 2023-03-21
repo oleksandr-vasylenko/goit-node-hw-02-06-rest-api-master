@@ -4,12 +4,9 @@ const path = require("path");
 const fs = require("fs/promises");
 const Jimp = require("jimp");
 const { nanoid } = require("nanoid");
-
 const { User } = require("../models/user");
 const { HttpError, ctrlWrapper, sendEmail } = require("../helpers");
-
 const { SECRET_KEY, BASE_URL } = process.env;
-
 const gravatar = require("gravatar");
 const avatarsDir = path.join(__dirname, "../", "public", "avatars");
 
@@ -51,6 +48,10 @@ const login = async (req, res) => {
 
   if (!user) {
     throw HttpError(401, "Email or password is wrong");
+  }
+
+  if (!user.verify) {
+    throw HttpError(401, "Email not verified");
   }
 
   const passwordCompare = await bcrypt.compare(password, user.password);
