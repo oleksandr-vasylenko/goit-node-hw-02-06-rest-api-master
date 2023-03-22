@@ -5,6 +5,7 @@
 Given API allows you to work with the contacts available in the database.
 Every contact added to the database gets a unique avatar.
 There is an option to change the avatar for the contact.
+Your can register a new user and after this you will get the email with the email verification
 
 ### The following methods for work with contacts are available:
 
@@ -18,6 +19,8 @@ There is an option to change the avatar for the contact.
 ### The following authorization methods are available:
 
 - **register**
+- **verifyEmail**
+- **resendVerifyEmail**
 - **login**
 - **getCurrent**
 - **logout**
